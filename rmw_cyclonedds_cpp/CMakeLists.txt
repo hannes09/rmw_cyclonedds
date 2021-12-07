@@ -43,6 +43,7 @@ find_package(rmw_dds_common REQUIRED)
 find_package(rosidl_runtime_c REQUIRED)
 find_package(rosidl_typesupport_introspection_c REQUIRED)
 find_package(rosidl_typesupport_introspection_cpp REQUIRED)
+find_package(iceoryx_binding_c CONFIG REQUIRED)
 
 ament_export_dependencies(rcutils)
 ament_export_dependencies(rcpputils)
@@ -67,6 +68,7 @@ add_library(rmw_cyclonedds_cpp
 
 target_link_libraries(rmw_cyclonedds_cpp
   CycloneDDS::ddsc
+  iceoryx_binding_c::iceoryx_binding_c
 )
 if(CMAKE_GENERATOR_PLATFORM)
   set(TARGET_ARCH "${CMAKE_GENERATOR_PLATFORM}")
